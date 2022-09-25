@@ -1,0 +1,12 @@
+0x00007f8398895577: mov    QWORD PTR [r8+0x78],0x1 //thread0Val = 1 
+  0x00007f839889557f: lock add DWORD PTR [rsp-0x40],0x0  // fullFence
+                                                ;*invokevirtual fullFence {reexecute=0 rethrow=0 return_oop=0}
+                                                ; - sun.misc.Unsafe::fullFence@3 (line 1219)
+                                                ; - x86.mem.x86Test::thread0@7 (line 33)
+                                                ; - x86.mem.x86Test$$Lambda$2/0x0000000840060c40::run@0
+                                                ; - java.lang.Thread::run@-1 (line 828)
+
+  0x00007f8398895585: mov    r10,QWORD PTR [r8+0x80] // read r1 = thread1Val
+  
+  0x00007f839889558c: mov    QWORD PTR [r8+0x90],r10  ;*synchronization entry
+                                                ; - java.lang.Thread::run@-1 (line 828)
